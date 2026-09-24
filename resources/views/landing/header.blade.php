@@ -80,7 +80,7 @@
                 <!-- Aksi mobile -->
                 <div class="flex lg:hidden items-center gap-1.5">
                     <button type="button" onclick="toggleTheme()" title="Ganti Tema"
-                            class="p-2 rounded-xl text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+                            class="p-2 rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
                         <span class="material-symbols-outlined text-[20px] block dark:hidden">dark_mode</span>
                         <span class="material-symbols-outlined text-[20px] hidden dark:block text-amber-400">light_mode</span>
                     </button>
@@ -121,6 +121,21 @@
                         <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7H7M17 7V17"/></svg>
                     </a>
                 @endforeach
+            </div>
+
+            <!-- Theme Switcher in Mobile Drawer -->
+            <div class="border-t border-zinc-200 dark:border-zinc-800 pt-4">
+                <button type="button" onclick="toggleTheme()" class="flex w-full items-center justify-between py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200">
+                    <span class="flex items-center gap-2.5">
+                        <span class="material-symbols-outlined text-[20px] block dark:hidden text-zinc-600">dark_mode</span>
+                        <span class="material-symbols-outlined text-[20px] hidden dark:block text-amber-400">light_mode</span>
+                        <span>Tema Tampilan</span>
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-xs text-zinc-600 dark:text-zinc-300">
+                        <span class="block dark:hidden">Mode Terang</span>
+                        <span class="hidden dark:block">Mode Gelap</span>
+                    </span>
+                </button>
             </div>
         </div>
 

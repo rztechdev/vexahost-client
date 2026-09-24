@@ -127,8 +127,8 @@
         <button @click="toggleTheme()"
                 class="p-2 rounded-lg text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 transition-colors focus:outline-none cursor-pointer"
                 title="Ganti Tema">
-            <span class="material-symbols-outlined text-[22px] block" x-show="!darkMode">light_mode</span>
-            <span class="material-symbols-outlined text-[22px] block text-amber-400" x-show="darkMode" style="display: none;">dark_mode</span>
+            <span class="material-symbols-outlined text-[22px] block text-amber-400" x-show="darkMode" x-cloak>light_mode</span>
+            <span class="material-symbols-outlined text-[22px] block text-zinc-600 dark:text-zinc-400" x-show="!darkMode">dark_mode</span>
         </button>
 
         <!-- Menu akun (ikon profil saja; detail di dropdown) -->
@@ -233,8 +233,23 @@
                 </button>
             @endcan
 
+            <!-- Theme Switcher in Mobile Drawer -->
+            <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800">
+                <button type="button" @click="toggleTheme()"
+                        class="w-full flex items-center justify-between p-3 rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950/50 hover:border-emerald-500 transition-colors">
+                    <div class="flex items-center gap-2.5">
+                        <span class="material-symbols-outlined text-amber-400 text-[20px]" x-show="darkMode" x-cloak>light_mode</span>
+                        <span class="material-symbols-outlined text-zinc-600 dark:text-zinc-400 text-[20px]" x-show="!darkMode">dark_mode</span>
+                        <span class="text-xs font-semibold text-zinc-800 dark:text-zinc-200">Tema Tampilan</span>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-200/60 dark:bg-zinc-800 text-[11px] font-medium text-zinc-700 dark:text-zinc-300">
+                        <span x-text="darkMode ? 'Mode Gelap' : 'Mode Terang'"></span>
+                    </span>
+                </button>
+            </div>
+
             <!-- Profile & Logout Section -->
-            <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-2">
+            <div class="pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-2">
                 <a href="{{ route('profile.edit') }}" class="flex items-center justify-between p-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-950/60 text-xs text-zinc-700 dark:text-zinc-300">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[18px]">account_circle</span>

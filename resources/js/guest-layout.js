@@ -14,14 +14,16 @@ export function updateThemeIcon() {
 }
 
 export function toggleTheme() {
-    if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-    } else {
+    const isDark = !document.documentElement.classList.contains('dark');
+    if (isDark) {
         document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
     }
     updateThemeIcon();
+    window.dispatchEvent(new CustomEvent('theme-changed', { detail: { darkMode: isDark } }));
 }
 
 // Centralized Entrance Animation for Login & Register Card

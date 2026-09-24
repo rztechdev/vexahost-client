@@ -10,6 +10,12 @@ Alpine.data('welcomeLayout', () => ({
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        window.addEventListener('theme-changed', (e) => {
+            if (e.detail && typeof e.detail.darkMode === 'boolean') {
+                this.darkMode = e.detail.darkMode;
+            }
+        });
     },
     
     toggleTheme() {
@@ -21,5 +27,6 @@ Alpine.data('welcomeLayout', () => ({
             document.documentElement.classList.remove('dark');
             localStorage.setItem('theme', 'light');
         }
+        window.dispatchEvent(new CustomEvent('theme-changed', { detail: { darkMode: this.darkMode } }));
     }
 }));

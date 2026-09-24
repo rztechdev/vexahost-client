@@ -15,6 +15,12 @@ Alpine.data('appLayout', () => ({
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        window.addEventListener('theme-changed', (e) => {
+            if (e.detail && typeof e.detail.darkMode === 'boolean') {
+                this.darkMode = e.detail.darkMode;
+            }
+        });
     },
     
     toggleTheme() {
