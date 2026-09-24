@@ -73,15 +73,9 @@ class GoogleAuthController extends Controller
             return redirect()->route('login')->with('error', "Akun Google {$email} belum terdaftar di VexaHost Client. Hubungi tim VexaHost via WhatsApp untuk dibuatkan akun.");
         }
 
-        $updates = [];
+        // Hanya menautkan ID Google; foto profil sengaja tidak disimpan.
         if (! $user->google_id) {
-            $updates['google_id'] = $googleId;
-        }
-        if (! $user->avatar && $googleUser->getAvatar()) {
-            $updates['avatar'] = $googleUser->getAvatar();
-        }
-        if ($updates) {
-            $user->forceFill($updates)->save();
+            $user->forceFill(['google_id' => $googleId])->save();
         }
 
         // Google sudah memverifikasi email-nya

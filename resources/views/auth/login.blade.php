@@ -42,10 +42,6 @@
 
             {{-- Kiri: sambutan --}}
             <div class="space-y-3 sm:space-y-4 text-center lg:text-left">
-                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/15 border border-white/20 text-[10px] sm:text-[11px] font-mono font-bold tracking-widest uppercase">
-                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                    Admin & Client Panel
-                </span>
                 <h1 class="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-black tracking-tight leading-[1.1] uppercase">
                     Halo, Selamat Datang!
                 </h1>

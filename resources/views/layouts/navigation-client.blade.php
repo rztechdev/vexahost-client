@@ -240,7 +240,7 @@
             </x-slot>
         </x-dropdown>
 
-        <!-- Menu akun (avatar saja; detail di dropdown) -->
+        <!-- Menu akun (ikon profil saja; detail di dropdown) -->
         <x-profile-menu />
     </div>
 </header>

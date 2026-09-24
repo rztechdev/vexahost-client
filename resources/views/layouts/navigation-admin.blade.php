@@ -131,7 +131,7 @@
             <span class="material-symbols-outlined text-[22px] block text-amber-400" x-show="darkMode" style="display: none;">dark_mode</span>
         </button>
 
-        <!-- Menu akun (avatar saja; detail di dropdown) -->
+        <!-- Menu akun (ikon profil saja; detail di dropdown) -->
         <x-profile-menu />
     </div>
 </header>

@@ -20,7 +20,6 @@ class GoogleLoginTest extends TestCase
             'id' => $id,
             'name' => 'Pengguna Google',
             'email' => $email,
-            'avatar' => 'https://lh3.googleusercontent.com/a/foto',
         ]);
 
         $provider = Mockery::mock(\Laravel\Socialite\Contracts\Provider::class);
