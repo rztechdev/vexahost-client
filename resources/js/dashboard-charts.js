@@ -1,3 +1,26 @@
+import {
+    Chart,
+    DoughnutController,
+    BarController,
+    LineController,
+    PieController,
+    ArcElement,
+    BarElement,
+    LineElement,
+    PointElement,
+    CategoryScale,
+    LinearScale,
+    Tooltip,
+    Legend,
+    Filler,
+} from 'chart.js';
+
+Chart.register(
+    DoughnutController, BarController, LineController, PieController,
+    ArcElement, BarElement, LineElement, PointElement,
+    CategoryScale, LinearScale, Tooltip, Legend, Filler
+);
+
 document.addEventListener('DOMContentLoaded', () => {
     const dataEl = document.getElementById('dashboard-data');
     if (!dataEl) return;

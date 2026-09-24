@@ -78,20 +78,39 @@ class LeadController extends Controller
                 'deal' => $allKanbanLeads->where('status', 'deal'),
                 'tidak_lanjut' => $allKanbanLeads->where('status', 'tidak_lanjut'),
             ];
-            $leads = $query->paginate(15)->withQueryString();
+            // Paginate from the already-fetched collection (avoid double query)
+            $page = $request->get('page', 1);
+            $leads = new \Illuminate\Pagination\LengthAwarePaginator(
+                $allKanbanLeads->forPage($page, 15)->values(),
+                $allKanbanLeads->count(),
+                15,
+                $page,
+                ['path' => $request->url(), 'query' => $request->query()]
+            );
         } else {
             $kanbanColumns = [];
             $leads = $query->paginate(15)->withQueryString();
         }
 
+        // Status counts — 1 query instead of 7
+        $rawCounts = Lead::select('status', \Illuminate\Support\Facades\DB::raw('count(*) as total'))
+            ->groupBy('status')
+            ->pluck('total', 'status')
+            ->all();
+
+        $overdueCount = Lead::whereNotNull('follow_up_date')
+            ->where('follow_up_date', '<', now()->toDateString())
+            ->whereNotIn('status', ['deal', 'tidak_lanjut'])
+            ->count();
+
         $statusCounts = [
-            'all' => Lead::count(),
-            'belum_dihubungi' => Lead::where('status', 'belum_dihubungi')->count(),
-            'sudah_chat' => Lead::where('status', 'sudah_chat')->count(),
-            'nego' => Lead::where('status', 'nego')->count(),
-            'deal' => Lead::where('status', 'deal')->count(),
-            'tidak_lanjut' => Lead::where('status', 'tidak_lanjut')->count(),
-            'overdue' => Lead::whereNotNull('follow_up_date')->where('follow_up_date', '<', now()->toDateString())->whereNotIn('status', ['deal', 'tidak_lanjut'])->count(),
+            'all' => array_sum($rawCounts),
+            'belum_dihubungi' => (int) ($rawCounts['belum_dihubungi'] ?? 0),
+            'sudah_chat' => (int) ($rawCounts['sudah_chat'] ?? 0),
+            'nego' => (int) ($rawCounts['nego'] ?? 0),
+            'deal' => (int) ($rawCounts['deal'] ?? 0),
+            'tidak_lanjut' => (int) ($rawCounts['tidak_lanjut'] ?? 0),
+            'overdue' => $overdueCount,
         ];
 
         return view('admin.leads.index', compact('leads', 'statusCounts', 'viewMode', 'kanbanColumns'));

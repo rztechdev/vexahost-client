@@ -1,10 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.authUserId && window.Echo) {
-        window.Echo.private(`App.Models.User.${window.authUserId}`)
-            .notification((notification) => {
-                showToast(notification.message ?? 'Ada pembaruan baru.');
-                updateBadge(1);
-            });
+document.addEventListener('DOMContentLoaded', async () => {
+    if (window.authUserId && window.initEcho) {
+        await window.initEcho();
+        if (window.Echo) {
+            window.Echo.private(`App.Models.User.${window.authUserId}`)
+                .notification((notification) => {
+                    showToast(notification.message ?? 'Ada pembaruan baru.');
+                    updateBadge(1);
+                });
+        }
     }
 });
 

@@ -13,16 +13,18 @@ window.authUserId = userIdMeta ? userIdMeta.getAttribute('content') : null;
 
 import './notifications';
 import './sweetalert';
-import Chart from 'chart.js/auto';
 import Alpine from 'alpinejs';
 
-window.Chart = Chart;
 window.Alpine = Alpine;
 
 // Import Layout scripts
 import './app-layout';
 import './guest-layout';
-import './dashboard-charts';
 import './welcome-layout';
+
+// Lazy load dashboard-charts only when the dashboard page is loaded
+if (document.getElementById('dashboard-data')) {
+    import('./dashboard-charts');
+}
 
 Alpine.start();

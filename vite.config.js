@@ -9,4 +9,15 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    build: {
+        target: 'es2020',
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    vendor: ['alpinejs', 'axios'],
+                    sweetalert: ['sweetalert2'],
+                },
+            },
+        },
+    },
 });
