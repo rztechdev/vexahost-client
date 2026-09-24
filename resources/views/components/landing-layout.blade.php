@@ -1,4 +1,4 @@
-@props(['title' => null])
+@props(['title' => null, 'flush' => false])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -34,7 +34,8 @@
     @include('landing.header')
 
     <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col w-full relative overflow-x-hidden pt-20 sm:pt-24">
+    {{-- flush: konten pertama (hero) mengisi layar di bawah header transparan --}}
+    <main class="flex-1 flex flex-col w-full relative overflow-x-hidden {{ $flush ? '' : 'pt-20 sm:pt-24' }}">
         {{ $slot }}
     </main>
 

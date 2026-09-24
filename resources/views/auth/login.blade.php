@@ -1,141 +1,171 @@
-<x-landing-layout>
-    <!-- ================================================================= -->
-    <!-- 1. FORM MASUK (Admin Panel & Client Panel)                          -->
-    <!-- ================================================================= -->
-    <section id="masuk" class="relative w-full px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-12 sm:pb-16 flex flex-col items-center scroll-mt-20">
-    <!-- Floating Card Wrapper (coordinates shadow & hover lift) -->
-    <div class="w-full max-w-4xl relative group py-10 flex flex-col justify-center items-center">
-        <!-- Realistic dynamic floor shadow -->
-        <div class="absolute bottom-4 left-[10%] w-[80%] h-8 bg-zinc-950/20 dark:bg-black/60 rounded-full pointer-events-none transition-all duration-700 ease-out group-hover:opacity-10 group-hover:scale-x-75 group-hover:blur-[64px] animate-floor-shadow z-0"></div>
+<x-landing-layout :flush="true">
+    {{-- =================================================================
+         1. HERO LOGIN — tepat satu layar (100svh), section berikutnya baru
+            terlihat setelah digulir. Bentuk dekoratif bersudut tegas
+            (radius kecil), bukan lingkaran, mengikuti gaya UI VexaHost.
+         ================================================================= --}}
+    <section id="masuk" class="relative isolate w-full min-h-[100svh] flex items-center overflow-hidden scroll-mt-0">
 
-        <!-- Bobbing float animation container -->
-        <div class="w-full relative z-10 animate-float">
-            <!-- Interactive Lift & Glow Container -->
-            <div id="auth-card" class="w-full super-glass border border-zinc-200/60 dark:border-zinc-800/60 rounded-[2rem] overflow-hidden transition-all duration-700 ease-out group-hover:-translate-y-4 group-hover:shadow-[0_45px_85px_-20px_rgba(0,0,0,0.22),_0_20px_40px_-25px_rgba(0,0,0,0.15),_0_0_60px_0px_rgba(234,88,12,0.12)] dark:group-hover:shadow-[0_55px_100px_-25px_rgba(0,0,0,0.8),_0_35px_60px_-30px_rgba(0,0,0,0.7),_0_0_65px_0px_rgba(234,88,12,0.08)] shadow-2xl">
-        
-                <div class="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
-                
-                <!-- Left Column: Colored Welcome Panel (Desktop: Left, Mobile: Top) -->
-                <div id="green-panel" class="md:col-span-5 bg-emerald-600 dark:bg-emerald-700 text-white flex flex-col justify-center items-center text-center p-8 sm:p-10 relative overflow-hidden rounded-b-[2.5rem] md:rounded-b-none md:rounded-r-[6rem] lg:rounded-r-[8rem] shrink-0 min-h-[220px] md:min-h-none">
-                    <!-- Background shapes inside colored panel -->
-                    <div class="absolute top-[-20%] left-[-20%] w-60 h-60 bg-white/10 rounded-full blur-2xl"></div>
-                    <div class="absolute bottom-[-10%] right-[-10%] w-52 h-52 bg-white/10 rounded-full blur-xl"></div>
-                    
-                    <div class="relative z-10 space-y-4 max-w-[280px]">
-                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">Halo, Selamat Datang!</h2>
-                        <p class="text-sm text-emerald-100 font-medium font-sans">Belum punya akun? Akun klien dibuat otomatis oleh tim VexaHost setelah proyek Anda disepakati.</p>
-                        <div class="pt-2">
-                            <a href="https://wa.me/6285808749131" target="_blank" rel="noopener noreferrer" id="btn-contact" class="inline-block px-8 py-2.5 border-2 border-white hover:bg-white hover:text-emerald-700 text-white text-sm font-bold rounded-xl transition-all duration-350 shadow-sm focus:outline-none">
-                                Hubungi Tim VexaHost
-                            </a>
-                        </div>
-                    </div>
+        {{-- ---------- Latar & bentuk dekoratif ---------- --}}
+        <div class="absolute inset-0 -z-10 pointer-events-none" aria-hidden="true">
+            {{-- Bentuk di belakang panel (mengintip dari tepi) --}}
+            <div class="absolute top-16 -left-16 sm:-left-10 w-40 h-40 sm:w-56 sm:h-56 rounded-[1.5rem] rotate-12 bg-gradient-to-br from-orange-300 to-orange-500 dark:from-orange-600 dark:to-orange-800 opacity-90"></div>
+            <div class="absolute -top-20 right-[8%] w-48 h-48 sm:w-72 sm:h-72 rounded-[1.75rem] -rotate-[18deg] bg-gradient-to-br from-orange-400 to-orange-600 dark:from-orange-700 dark:to-orange-900 opacity-80"></div>
+            <div class="absolute -bottom-24 -right-12 w-56 h-56 sm:w-80 sm:h-80 rounded-[2rem] rotate-[24deg] bg-gradient-to-tl from-orange-500 to-orange-300 dark:from-orange-800 dark:to-orange-600 opacity-90"></div>
+
+            {{-- Panel utama (area hero) — lebar & tinggi dibatasi agar proporsional di monitor besar --}}
+            <div class="absolute overflow-hidden rounded-[1.25rem] sm:rounded-[1.75rem]
+                        left-3 right-3 top-[4.5rem] bottom-3
+                        sm:left-6 sm:right-6 sm:top-20 sm:bottom-6
+                        lg:left-[max(2.5rem,calc((100vw_-_84rem)/2))] lg:right-[max(2.5rem,calc((100vw_-_84rem)/2))]
+                        lg:top-[max(5.5rem,calc((100svh_-_46rem)/2))] lg:bottom-[max(2rem,calc((100svh_-_46rem)/2_-_2rem))]
+                        2xl:left-[max(3rem,calc((100vw_-_100rem)/2))] 2xl:right-[max(3rem,calc((100vw_-_100rem)/2))]
+                        2xl:top-[max(6rem,calc((100svh_-_54rem)/2))] 2xl:bottom-[max(2.5rem,calc((100svh_-_54rem)/2_-_2rem))]
+                        bg-gradient-to-br from-orange-500 via-orange-600 to-orange-700
+                        dark:from-orange-600 dark:via-orange-700 dark:to-orange-900
+                        shadow-2xl shadow-orange-900/25">
+                {{-- Bentuk transparan di dalam panel --}}
+                <div class="absolute -bottom-40 -left-28 w-[30rem] h-[30rem] rounded-[3rem] rotate-12 bg-white/10"></div>
+                <div class="absolute -top-24 left-[38%] w-72 h-72 rounded-[2rem] rotate-45 bg-white/[0.07]"></div>
+                <div class="absolute top-[18%] -right-20 w-80 h-80 rounded-[2.5rem] -rotate-12 bg-orange-400/25"></div>
+                <div class="absolute bottom-10 right-[42%] w-24 h-24 rounded-2xl rotate-[30deg] border-2 border-white/15 hidden lg:block"></div>
+                <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+            </div>
+        </div>
+
+        {{-- ---------- Konten ---------- --}}
+        <div class="relative w-full max-w-6xl 2xl:max-w-[80rem] mx-auto
+                    px-7 sm:px-14 lg:px-20
+                    pt-24 pb-10 sm:pt-28 sm:pb-14 lg:py-24
+                    grid grid-cols-1 lg:grid-cols-2 items-center
+                    gap-6 sm:gap-8 lg:gap-16 text-white">
+
+            {{-- Kiri: sambutan --}}
+            <div class="space-y-3 sm:space-y-4 text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/15 border border-white/20 text-[10px] sm:text-[11px] font-mono font-bold tracking-widest uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    Admin & Client Panel
+                </span>
+                <h1 class="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-black tracking-tight leading-[1.1] uppercase">
+                    Halo, Selamat Datang!
+                </h1>
+                <p class="text-sm sm:text-base xl:text-lg font-bold text-orange-50">
+                    Satu pintu masuk untuk klien & tim VexaHost.
+                </p>
+                <p class="hidden sm:block text-sm text-orange-100/90 leading-relaxed max-w-md mx-auto lg:mx-0 [@media(max-height:640px)]:hidden">
+                    Belum punya akun? Akun klien dibuat otomatis oleh tim VexaHost setelah proyek Anda disepakati.
+                    Anda otomatis diarahkan ke Client Panel atau Admin Panel sesuai akun.
+                </p>
+                <div class="hidden lg:block pt-2">
+                    <a href="https://wa.me/6285808749131" target="_blank" rel="noopener noreferrer" id="btn-contact"
+                       class="inline-flex items-center gap-2 px-6 py-2.5 border-2 border-white hover:bg-white hover:text-orange-700 text-white text-sm font-bold rounded-lg transition-colors">
+                        <x-icon-whatsapp class="w-4 h-4" fill="currentColor" />
+                        Hubungi Tim VexaHost
+                    </a>
                 </div>
+            </div>
 
-                <!-- Right Column: Login Form Content (Desktop: Right, Mobile: Bottom) -->
-                <div id="form-panel" class="md:col-span-7 flex flex-col justify-center p-8 sm:p-10 lg:p-12">
-                    
-                    <div class="w-full max-w-md mx-auto space-y-6 flex flex-col">
-
-                        <!-- Heading -->
-                        <div class="text-left space-y-1">
-                            <h3 class="text-3xl font-black text-zinc-900 dark:text-white tracking-tight">Masuk Portal</h3>
-                            <p class="text-xs text-zinc-500 dark:text-zinc-400 font-medium">Satu pintu masuk untuk klien & tim VexaHost. Anda otomatis diarahkan ke Client Panel atau Admin Panel sesuai akun.</p>
-                        </div>
-
-                        <x-auth-session-status class="mb-2" :status="session('status')" />
-
-                        @if (session('error'))
-                            <div class="flex items-start gap-2 rounded-xl border border-rose-200 dark:border-rose-900/50 bg-rose-50 dark:bg-rose-950/30 px-3.5 py-2.5 text-xs font-medium text-rose-700 dark:text-rose-300">
-                                <span class="material-symbols-outlined text-[18px] shrink-0">error</span>
-                                <span>{{ session('error') }}</span>
-                            </div>
-                        @endif
-
-                        <!-- Login dengan Google -->
-                        <a href="{{ route('auth.google') }}"
-                           class="w-full flex items-center justify-center gap-2.5 px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:bg-zinc-50 dark:hover:bg-zinc-900 text-sm font-bold text-zinc-800 dark:text-zinc-100 shadow-sm transition-all">
-                            <svg class="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
-                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.4 7.34 24 12 24z"/>
-                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z"/>
-                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.6 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
-                            </svg>
-                            <span>Lanjutkan dengan Google</span>
-                        </a>
-
-                        <!-- Divider -->
-                        <div class="relative select-none">
-                            <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                                <div class="w-full border-t border-zinc-200 dark:border-zinc-800/80"></div>
-                            </div>
-                            <div class="relative flex justify-center text-[11px] font-semibold uppercase tracking-wider">
-                                <span class="bg-white dark:bg-zinc-900 px-3 text-zinc-400 dark:text-zinc-500">atau masuk dengan email</span>
-                            </div>
-                        </div>
-                        <!-- Form -->
-                        <form method="POST" action="{{ route('login') }}" class="space-y-4">
-                            @csrf
-
-                            <!-- Username / Email -->
-                            <div class="space-y-1">
-                                <label for="email" class="block text-xs font-bold font-mono tracking-wider text-zinc-500 uppercase">Alamat Email</label>
-                                <div class="relative">
-                                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" placeholder="nama@email.com"
-                                           class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-600 focus:border-emerald-600 dark:focus:border-emerald-500 focus:ring focus:ring-emerald-600/20 dark:focus:ring-emerald-500/20 transition-all pl-4 pr-10 py-3 text-sm">
-                                    <span class="material-symbols-outlined text-[20px] text-zinc-400 dark:text-zinc-600 absolute right-3.5 top-1/2 -translate-y-1/2 select-none pointer-events-none">person</span>
-                                </div>
-                                @error('email')
-                                    <p class="text-rose-600 dark:text-rose-400 text-xs mt-1 font-medium">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <!-- Password -->
-                            <div class="space-y-1">
-                                <label for="password" class="block text-xs font-bold font-mono tracking-wider text-zinc-500 uppercase">Kata Sandi</label>
-                                <div class="relative">
-                                    <input id="password" type="password" name="password" required autocomplete="current-password" placeholder="••••••••"
-                                           class="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl text-zinc-900 dark:text-zinc-50 placeholder-zinc-400 dark:placeholder-zinc-600 focus:border-emerald-600 dark:focus:border-emerald-500 focus:ring focus:ring-emerald-600/20 dark:focus:ring-emerald-500/20 transition-all pl-4 pr-10 py-3 text-sm">
-                                    <span class="material-symbols-outlined text-[20px] text-zinc-400 dark:text-zinc-600 absolute right-3.5 top-1/2 -translate-y-1/2 select-none pointer-events-none">lock</span>
-                                </div>
-                                @error('password')
-                                    <p class="text-rose-600 dark:text-rose-400 text-xs mt-1 font-medium">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <!-- Remember & Forgot Password -->
-                            <div class="flex items-center justify-between pt-1">
-                                <label for="remember_me" class="inline-flex items-center cursor-pointer select-none">
-                                    <input id="remember_me" type="checkbox" name="remember" class="rounded bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-emerald-600 dark:text-emerald-500 focus:ring-emerald-500/40 focus:ring-offset-zinc-50 dark:focus:ring-offset-zinc-900">
-                                    <span class="ms-2 text-xs text-zinc-500 dark:text-zinc-400 font-semibold">Ingat Saya</span>
-                                </label>
-
-                                @if (Route::has('password.request'))
-                                    <a class="text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors font-bold" href="{{ route('password.request') }}">
-                                        Lupa Kata Sandi?
-                                    </a>
-                                @endif
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="pt-2">
-                                <button type="submit" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-xl shadow-md shadow-emerald-600/10 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 dark:focus:ring-emerald-500 focus:ring-offset-white dark:focus:ring-offset-zinc-900 transition-all">
-                                    Masuk Dashboard
-                                </button>
-                            </div>
-                        </form>
-
+            {{-- Kanan: form masuk --}}
+            <div class="w-full max-w-md 2xl:max-w-lg mx-auto lg:mx-0 lg:justify-self-end">
+                <div class="space-y-4 sm:space-y-5 [@media(max-height:720px)]:space-y-3">
+                    <div class="space-y-1">
+                        <h2 class="text-2xl sm:text-3xl font-black tracking-tight">Masuk Portal</h2>
+                        <p class="text-xs text-orange-100/90 font-medium">Gunakan akun Google atau email yang sudah terdaftar.</p>
                     </div>
+
+                    <x-auth-session-status class="rounded-lg bg-white px-3.5 py-2.5 !text-emerald-700" :status="session('status')" />
+
+                    @if (session('error'))
+                        <div class="flex items-start gap-2 rounded-lg bg-white px-3.5 py-2.5 text-xs font-semibold text-rose-700 shadow-sm">
+                            <span class="material-symbols-outlined text-[18px] shrink-0">error</span>
+                            <span>{{ session('error') }}</span>
+                        </div>
+                    @endif
+
+                    {{-- Login dengan Google --}}
+                    <a href="{{ route('auth.google') }}"
+                       class="w-full flex items-center justify-center gap-2.5 px-4 py-3 [@media(max-height:720px)]:py-2.5 rounded-lg bg-white hover:bg-orange-50 text-sm font-bold text-zinc-800 shadow-sm transition-colors">
+                        <svg class="w-[18px] h-[18px] shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.4 7.34 24 12 24z"/>
+                            <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.24C.45 8.15 0 9.92 0 12s.45 3.85 1.24 5.42l4.04-3.15z"/>
+                            <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.6 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                        </svg>
+                        <span>Lanjutkan dengan Google</span>
+                    </a>
+
+                    <div class="flex items-center gap-3 select-none" aria-hidden="true">
+                        <span class="h-px flex-1 bg-white/30"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-orange-100/80">atau masuk dengan email</span>
+                        <span class="h-px flex-1 bg-white/30"></span>
+                    </div>
+
+                    <form method="POST" action="{{ route('login') }}" class="space-y-3.5 [@media(max-height:720px)]:space-y-2.5" x-data="{ lihat: false }">
+                        @csrf
+
+                        <div class="space-y-1">
+                            <label for="email" class="sr-only">Alamat Email</label>
+                            <div class="relative">
+                                <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" placeholder="Alamat email"
+                                       class="w-full rounded-lg border border-white/50 bg-white/10 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/30 focus:bg-white/15 transition-all pl-4 pr-11 py-3 [@media(max-height:720px)]:py-2.5 text-sm">
+                                <span class="material-symbols-outlined text-[20px] text-white/70 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none">person</span>
+                            </div>
+                            @error('email')
+                                <p class="text-xs font-semibold text-white bg-rose-600/80 rounded-md px-2 py-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="space-y-1">
+                            <label for="password" class="sr-only">Kata Sandi</label>
+                            <div class="relative">
+                                <input id="password" :type="lihat ? 'text' : 'password'" type="password" name="password" required autocomplete="current-password" placeholder="Kata sandi"
+                                       class="w-full rounded-lg border border-white/50 bg-white/10 text-white placeholder-white/70 focus:border-white focus:ring-2 focus:ring-white/30 focus:bg-white/15 transition-all pl-4 pr-20 py-3 [@media(max-height:720px)]:py-2.5 text-sm">
+                                <button type="button" @click="lihat = ! lihat"
+                                        class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold uppercase tracking-wider text-white/90 hover:text-white"
+                                        x-text="lihat ? 'Sembunyi' : 'Lihat'">Lihat</button>
+                            </div>
+                            @error('password')
+                                <p class="text-xs font-semibold text-white bg-rose-600/80 rounded-md px-2 py-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3 pt-0.5">
+                            <label for="remember_me" class="inline-flex items-center cursor-pointer select-none">
+                                <input id="remember_me" type="checkbox" name="remember"
+                                       class="rounded border-white/60 bg-white/10 text-orange-700 focus:ring-white/40 focus:ring-offset-0">
+                                <span class="ms-2 text-xs font-semibold text-orange-50">Ingat Saya</span>
+                            </label>
+
+                            @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}" class="text-xs font-bold text-white underline-offset-4 hover:underline">
+                                    Lupa Kata Sandi?
+                                </a>
+                            @endif
+                        </div>
+
+                        <button type="submit"
+                                class="w-full flex justify-center items-center py-3 [@media(max-height:720px)]:py-2.5 px-4 rounded-lg bg-white hover:bg-orange-50 text-sm font-black text-orange-700 shadow-md shadow-orange-900/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600 transition-colors">
+                            Masuk Dashboard
+                        </button>
+                    </form>
+
+                    <p class="text-center lg:text-left text-xs text-orange-100/90">
+                        Belum punya akun?
+                        <a href="https://wa.me/6285808749131" target="_blank" rel="noopener noreferrer" class="font-bold text-white underline-offset-4 hover:underline">Hubungi Tim VexaHost</a>
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+
+        {{-- Petunjuk gulir --}}
+        <a href="#tentang" class="hidden lg:flex [@media(max-height:760px)]:!hidden absolute bottom-3 left-1/2 -translate-x-1/2 items-center gap-1 text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 hover:text-orange-600 transition-colors" aria-label="Gulir ke bawah">
+            <span class="material-symbols-outlined text-[18px] animate-bounce">keyboard_arrow_down</span>
+        </a>
     </section>
 
-    <!-- ================================================================= -->
-    <!-- 2. LANDING PAGE                                                     -->
-    <!-- ================================================================= -->
+    {{-- =================================================================
+         2. LANDING PAGE
+         ================================================================= --}}
     @include('landing.about')
 
     @include('landing.sections')
