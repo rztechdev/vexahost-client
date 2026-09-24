@@ -28,7 +28,7 @@ Buat database MySQL di Coolify dengan nama sesuai tabel di atas, catat host inte
 |---|---|
 | Install Command | *(kosongkan — otomatis dari composer.json & package.json)* |
 | Build Command | `npm run build` |
-| Start Command | `php artisan serve --host=0.0.0.0 --port=80` |
+| Start Command | `sh start.sh` *(Otomatis migrate, seed, cache & serve)* |
 
 ## 📍 LANGKAH 4: Environment Variables
 
@@ -48,13 +48,17 @@ Tab **Persistent Storage** ➔ `+ Add`:
 
 (Menyimpan logo, QRIS, tanda tangan, bukti transfer & dokumen proyek.)
 
-## 📍 LANGKAH 6: Post-Deployment Commands
+## 📍 LANGKAH 6: Otomasi Migrasi & Seeder (start.sh)
 
-```bash
-php artisan optimize:clear && php artisan migrate --force && php artisan db:seed --force && php artisan storage:link --force && php artisan config:cache && php artisan route:cache && php artisan view:cache
-```
-
-`db:seed` aman diulang: hanya menyinkronkan permission, role bawaan, dan akun admin dari `.env`.
+> 💡 **Keterangan:**
+> Karena `Start Command` sudah disetel ke `sh start.sh`, seluruh proses pembersihan cache, `migrate --force`, `db:seed --force`, symlink storage, dan caching config/route/view **berjalan otomatis 100% setiap kali deploy atau container restart**.
+> 
+> Kolom **Post-Deployment Commands** di Coolify bisa dikosongkan.
+> 
+> *(Jika tidak menggunakan `start.sh`, Anda juga bisa langsung memasukkan perintah satu baris ke Start Command Coolify:)*
+> ```bash
+> sh -c "php artisan optimize:clear && php artisan migrate --force && php artisan db:seed --force && php artisan storage:link --force && php artisan config:cache && php artisan route:cache && php artisan view:cache && php artisan serve --host=0.0.0.0 --port=80"
+> ```
 
 ## 📍 LANGKAH 7: Scheduler & Queue
 
