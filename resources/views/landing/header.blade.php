@@ -3,7 +3,6 @@
     $beranda = request()->routeIs('home', 'login') ? '' : url('/');
 
     $menuHalaman = [
-        ['Masuk', $beranda . '#masuk'],
         ['Tentang', $beranda . '#tentang'],
         ['Fitur', $beranda . '#fitur'],
         ['Akses Peran', $beranda . '#rbac'],
@@ -21,15 +20,15 @@
      x-init="scrolled = (window.scrollY > 20); $watch('mobileOpen', val => document.body.classList.toggle('overflow-hidden', val))"
      @scroll.window.passive="scrolled = (window.scrollY > 20)">
 
-    <!-- Header: transparan saat di paling atas, berlatar saat halaman digulir -->
+    <!-- Header: transparan saat paling atas, blur saat di-scroll -->
     <header class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300"
             :class="scrolled
                 ? 'py-2.5 sm:py-3 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-200/80 dark:border-zinc-800/80 shadow-xs'
-                : 'py-3.5 sm:py-4 bg-transparent border-b border-transparent shadow-none'">
+                : 'py-3 sm:py-4 bg-transparent border-b border-transparent shadow-none'">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between gap-4">
                 <!-- Logo (kiri) -->
-                <a href="{{ url('/') }}" class="shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
+                <a href="{{ url('/') }}" class="shrink-0 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BAFF39]">
                     <x-vh-logo size="sm" />
                 </a>
 
@@ -37,22 +36,22 @@
                 <div class="hidden lg:flex items-center gap-5 xl:gap-7">
                     <nav class="flex items-center gap-5 xl:gap-6 text-sm font-medium text-zinc-700 dark:text-zinc-300" aria-label="Navigasi Utama">
                         @foreach ($menuHalaman as [$label, $href])
-                            <a href="{{ $href }}" class="group flex items-center py-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                            <a href="{{ $href }}" class="group flex items-center py-1 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">
                                 <span class="relative pb-0.5">
                                     {{ $label }}
-                                    <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-emerald-600 transition-all duration-200 group-hover:w-full"></span>
+                                    <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#BAFF39] transition-all duration-200 group-hover:w-full"></span>
                                 </span>
                             </a>
                         @endforeach
 
                         @foreach ($menuEkosistem as [$label, $href, $title])
                             <a href="{{ $href }}" target="_blank" rel="noopener noreferrer" title="{{ $title }}"
-                               class="group flex items-center gap-1 py-1 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                                class="group flex items-center gap-1 py-1 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">
                                 <span class="relative pb-0.5">
                                     {{ $label }}
-                                    <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-emerald-600 transition-all duration-200 group-hover:w-full"></span>
+                                    <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-[#BAFF39] transition-all duration-200 group-hover:w-full"></span>
                                 </span>
-                                <svg class="w-3 h-3 text-zinc-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-3 h-3 text-zinc-400 group-hover:text-[#5c8a0f] dark:group-hover:text-[#BAFF39] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7H7M17 7V17"/>
                                 </svg>
                             </a>
@@ -61,18 +60,24 @@
 
                     <!-- Tema terang/gelap -->
                     <button type="button" onclick="toggleTheme()" title="Ganti Tema"
-                            class="p-2 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors focus:outline-none">
+                            class="p-2 rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] hover:bg-zinc-100 dark:hover:bg-zinc-800/80 transition-colors focus:outline-none">
                         <span class="material-symbols-outlined text-[20px] block dark:hidden">dark_mode</span>
                         <span class="material-symbols-outlined text-[20px] hidden dark:block text-amber-400">light_mode</span>
                     </button>
 
                     @auth
-                        <a href="{{ auth()->user()->homeUrl() }}" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-xs transition-all active:scale-95">
+                        <a href="{{ auth()->user()->homeUrl() }}" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#BAFF39] hover:bg-[#a6ec27] text-zinc-950 text-sm font-bold shadow-xs transition-all active:scale-95">
                             Dasbor
                         </a>
                     @else
-                        <a href="{{ $beranda }}#masuk" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-xs transition-all active:scale-95">
-                            Masuk
+                        <a href="https://wa.me/6285808749131?text=Halo%20VexaHost,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website%20untuk%20usaha%20saya."
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#BAFF39] hover:bg-[#a6ec27] text-zinc-950 text-xs lg:text-sm font-bold shadow-xs hover:shadow-md transition-all duration-200 active:scale-95 group shrink-0">
+                            <span>Konsultasi Gratis</span>
+                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
                         </a>
                     @endauth
                 </div>
@@ -110,13 +115,13 @@
             <div class="space-y-1">
                 <p class="text-[11px] font-bold font-mono uppercase tracking-wider text-zinc-400">Portal</p>
                 @foreach ($menuHalaman as [$label, $href])
-                    <a href="{{ $href }}" @click="mobileOpen = false" class="block py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ $label }}</a>
+                    <a href="{{ $href }}" @click="mobileOpen = false" class="block py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">{{ $label }}</a>
                 @endforeach
             </div>
             <div class="space-y-1">
                 <p class="text-[11px] font-bold font-mono uppercase tracking-wider text-zinc-400">Ekosistem VexaHost</p>
                 @foreach ($menuEkosistem as [$label, $href, $title])
-                    <a href="{{ $href }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                    <a href="{{ $href }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between py-1.5 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">
                         <span>{{ $title }}</span>
                         <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7H7M17 7V17"/></svg>
                     </a>
@@ -141,9 +146,14 @@
 
         <div class="shrink-0 border-t border-zinc-200 dark:border-zinc-800 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
             @auth
-                <a href="{{ auth()->user()->homeUrl() }}" class="block w-full text-center rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white">Dasbor</a>
+                <a href="{{ auth()->user()->homeUrl() }}" class="block w-full text-center rounded-xl bg-[#BAFF39] hover:bg-[#a6ec27] px-4 py-2.5 text-sm font-bold text-zinc-950 shadow-xs transition-all active:scale-95">Dasbor</a>
             @else
-                <a href="{{ $beranda }}#masuk" @click="mobileOpen = false" class="block w-full text-center rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white">Masuk</a>
+                <a href="https://wa.me/6285808749131?text=Halo%20VexaHost,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website%20untuk%20usaha%20saya." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-1.5 w-full text-center rounded-xl bg-[#BAFF39] hover:bg-[#a6ec27] px-4 py-2.5 text-sm font-bold text-zinc-950 shadow-xs transition-all active:scale-95">
+                    <span>Konsultasi Gratis</span>
+                    <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                </a>
             @endauth
         </div>
     </div>

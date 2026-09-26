@@ -3,12 +3,22 @@ import forms from '@tailwindcss/forms';
 import colors from 'tailwindcss/colors';
 
 /**
- * Palet brand VexaHost (sama dengan "vexahost - build"):
- * primary #FB923C (400) · deep #EA580C (600) · deep hover #C2410C (700) · cream #FFF7ED (50)
+ * Palet brand VexaHost:
+ * #BAFF39 (Electric Lime)
  */
-const vexaOrange = {
-    ...colors.orange,
-    DEFAULT: '#EA580C',
+const vexaBrand = {
+    50: '#f7fee7',
+    100: '#f0fdd4',
+    200: '#e1fba8',
+    300: '#d0f870',
+    400: '#c2f84a',
+    500: '#BAFF39',
+    600: '#99db1e',
+    700: '#77ac17',
+    800: '#5a8215',
+    900: '#466614',
+    950: '#223506',
+    DEFAULT: '#BAFF39',
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -47,13 +57,17 @@ export default {
                 xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
                 '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 card: '0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.04)',
-                glow: '0 0 20px -5px rgba(234, 88, 12, 0.35)',
+                glow: '0 0 20px -5px rgba(186, 255, 57, 0.45)',
             },
             colors: {
-                // Seluruh aksen UI (emerald/indigo lama) diarahkan ke oranye VexaHost
-                brand: vexaOrange,
-                emerald: vexaOrange,
-                indigo: vexaOrange,
+                brand: vexaBrand,
+                emerald: vexaBrand,
+                indigo: vexaBrand,
+                orange: vexaBrand,
+                lime: {
+                    ...colors.lime,
+                    DEFAULT: '#BAFF39',
+                },
                 gray: colors.zinc,
                 slate: colors.zinc,
                 zinc: colors.zinc,

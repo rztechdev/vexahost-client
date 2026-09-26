@@ -7,10 +7,10 @@
         "build": "vite build",
         "dev": "vite",
         "serve": "php artisan serve --port=8054",
-        "all": "concurrently -n laravel,vite -c \"#fb923c,#a1a1aa\" \"php artisan serve --port=8054\" \"npm run dev\"",
-        "all:host": "concurrently -n laravel,vite -c \"#fb923c,#a1a1aa\" \"php artisan serve --host=0.0.0.0 --port=8054\" \"npm run dev -- --host\"",
+        "all": "concurrently -n laravel,vite -c \"#BAFF39,#a1a1aa\" \"php artisan serve --port=8054\" \"npm run dev\"",
+        "all:host": "concurrently -n laravel,vite -c \"#BAFF39,#a1a1aa\" \"php artisan serve --host=0.0.0.0 --port=8054\" \"npm run dev -- --host\"",
         "ngrok": "ngrok http 8054",
-        "all:ngrok": "npm run build && concurrently -n laravel,ngrok -c \"#fb923c,#38bdf8\" \"php artisan serve --port=8054\" \"ngrok http 8054\""
+        "all:ngrok": "npm run build && concurrently -n laravel,ngrok -c \"#BAFF39,#38bdf8\" \"php artisan serve --port=8054\" \"ngrok http 8054\""
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",

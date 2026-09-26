@@ -10,7 +10,7 @@
 
         <!-- Brand -->
         <div class="lg:col-span-4 space-y-4">
-            <a href="{{ url('/') }}" class="inline-block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
+            <a href="{{ url('/') }}" class="inline-block rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#BAFF39]">
                 <x-vh-logo size="lg" />
             </a>
             <p class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">
@@ -35,9 +35,9 @@
         <div class="lg:col-span-3 space-y-3">
             <h5 class="text-xs font-bold font-mono tracking-wider text-zinc-400 dark:text-zinc-500 uppercase">Layanan VexaHost</h5>
             <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                <li><a href="https://build.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Jasa Pembuatan Website</a></li>
-                <li><a href="https://wa.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">WhatsApp Gateway API</a></li>
-                <li><a href="https://vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Cloud VPS & Hosting</a></li>
+                <li><a href="https://build.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Jasa Pembuatan Website</a></li>
+                <li><a href="https://wa.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">WhatsApp Gateway API</a></li>
+                <li><a href="https://vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Cloud VPS & Hosting</a></li>
             </ul>
         </div>
 
@@ -45,11 +45,11 @@
         <div class="lg:col-span-2 space-y-3">
             <h5 class="text-xs font-bold font-mono tracking-wider text-zinc-400 dark:text-zinc-500 uppercase">Portal</h5>
             <ul class="space-y-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
-                <li><a href="{{ $beranda }}#masuk" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Masuk Portal</a></li>
-                <li><a href="{{ $beranda }}#fitur" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Fitur Utama</a></li>
-                <li><a href="{{ $beranda }}#rbac" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Akses Peran</a></li>
+                <li><a href="{{ $beranda }}#masuk" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Masuk Portal</a></li>
+                <li><a href="{{ $beranda }}#fitur" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Fitur Utama</a></li>
+                <li><a href="{{ $beranda }}#rbac" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Akses Peran</a></li>
                 @if (Route::has('password.request'))
-                    <li><a href="{{ route('password.request') }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Lupa Kata Sandi</a></li>
+                    <li><a href="{{ route('password.request') }}" class="hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">Lupa Kata Sandi</a></li>
                 @endif
             </ul>
         </div>
@@ -71,13 +71,13 @@
     <div class="max-w-7xl mx-auto w-full pt-6 sm:pt-8 flex flex-col lg:flex-row justify-between items-center gap-3 text-xs text-zinc-400 dark:text-zinc-500 font-medium text-center lg:text-left relative z-10">
         <div>&copy; {{ date('Y') }} VexaHost. All rights reserved. Created by vexahostcloud.</div>
         <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 font-mono text-[11px]">
-            <a href="https://client.vexahostcloud.my.id" class="text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">client.vexahostcloud.my.id</a>
+            <a href="https://client.vexahostcloud.my.id" class="text-zinc-600 dark:text-zinc-400 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">client.vexahostcloud.my.id</a>
             <span>•</span>
-            <a href="https://build.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">build.vexahostcloud.my.id ↗</a>
+            <a href="https://build.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">build.vexahostcloud.my.id ↗</a>
             <span>•</span>
-            <a href="https://wa.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">wa.vexahostcloud.my.id ↗</a>
+            <a href="https://wa.vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">wa.vexahostcloud.my.id ↗</a>
             <span>•</span>
-            <a href="https://vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">vexahostcloud.my.id ↗</a>
+            <a href="https://vexahostcloud.my.id" target="_blank" rel="noopener noreferrer" class="text-zinc-600 dark:text-zinc-400 hover:text-[#5c8a0f] dark:hover:text-[#BAFF39] transition-colors">vexahostcloud.my.id ↗</a>
         </div>
     </div>
 </footer>

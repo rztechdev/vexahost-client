@@ -4,15 +4,15 @@
             <!-- Left Side (Typography and details) -->
             <div class="lg:col-span-6 space-y-5 sm:space-y-6 text-left">
                 <!-- Tagline Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-250 dark:border-zinc-800 rounded-full text-[10px] sm:text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 max-w-full">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse shrink-0"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-250 dark:border-zinc-800 rounded-full text-[10px] sm:text-xs font-mono font-bold text-[#5c8a0f] dark:text-[#BAFF39] max-w-full">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#6ca413] dark:bg-[#BAFF39] animate-pulse shrink-0"></span>
                     <span class="truncate">SISTEM MANAJEMEN OPERASIONAL TERPADU</span>
                 </div>
                 
                 <!-- Main Header -->
                 <h1 class="text-3xl sm:text-5xl lg:text-[54px] font-black text-zinc-900 dark:text-white leading-[1.15] sm:leading-[1.1] tracking-tight">
                     Orkestrasi Kerja <br class="hidden sm:inline"/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6ca413] to-[#8cd01b] dark:from-[#BAFF39] dark:to-lime-200">
                         Tanpa Hambatan.
                     </span>
                 </h1>
@@ -24,7 +24,7 @@
                 
                 <!-- CTA Actions -->
                 <div class="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto">
-                    <a href="#masuk" class="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-sm shadow-emerald-600/10">
+                    <a href="#masuk" class="w-full sm:w-auto px-6 py-3.5 bg-[#BAFF39] hover:bg-[#a6ec27] text-zinc-950 rounded-xl font-black text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-sm shadow-[#BAFF39]/30 active:scale-95">
                         Masuk Sekarang
                         <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
                     </a>
@@ -57,7 +57,7 @@
                         <div class="flex gap-1.5 shrink-0">
                             <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-rose-500/85"></span>
                             <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-500/85"></span>
-                            <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-500/85"></span>
+                            <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#BAFF39]"></span>
                         </div>
                         <span class="text-[10px] sm:text-xs font-mono text-zinc-400 dark:text-zinc-500 truncate px-2">client.vexahostcloud.my.id/client</span>
                         <div class="w-4 sm:w-6"></div>
@@ -69,7 +69,7 @@
                         <div class="bg-zinc-50 dark:bg-zinc-950 p-3 sm:p-4 rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 shadow-sm">
                             <div class="flex justify-between items-start gap-2 mb-2">
                                 <div class="min-w-0">
-                                    <div class="text-[9px] text-emerald-600 dark:text-emerald-400 font-mono font-bold uppercase tracking-wider truncate">TKT-102 &bull; SLA Aktif</div>
+                                    <div class="text-[9px] text-[#5c8a0f] dark:text-[#BAFF39] font-mono font-bold uppercase tracking-wider truncate">TKT-102 &bull; SLA Aktif</div>
                                     <div class="text-xs sm:text-sm font-bold text-zinc-850 dark:text-zinc-100 mt-0.5 truncate">Integrasi Gateway Payment</div>
                                 </div>
                                 <span class="px-2 py-0.5 bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400 text-[9px] font-extrabold rounded-md border border-rose-100 dark:border-rose-900/30 shrink-0">KRITIS</span>
@@ -90,15 +90,15 @@
                         <div class="bg-zinc-50 dark:bg-zinc-950 p-3 sm:p-4 rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 shadow-sm">
                             <div class="flex justify-between items-center gap-2 mb-3">
                                 <span class="text-xs font-bold text-zinc-800 dark:text-zinc-250 truncate">Tugas Internal Proyek</span>
-                                <span class="text-[9px] font-mono font-semibold bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/30 text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 rounded shrink-0">80% SELESAI</span>
+                                <span class="text-[9px] font-mono font-semibold bg-lime-50 dark:bg-lime-950/40 border border-lime-200 dark:border-lime-900/40 text-[#4d750c] dark:text-[#BAFF39] px-1.5 py-0.5 rounded shrink-0">80% SELESAI</span>
                             </div>
                             <div class="space-y-2">
                                 <div class="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400">
-                                    <span class="material-symbols-outlined text-emerald-500 text-[14px] sm:text-[16px] shrink-0">check_circle</span>
+                                    <span class="material-symbols-outlined text-[#6ca413] dark:text-[#BAFF39] text-[14px] sm:text-[16px] shrink-0">check_circle</span>
                                     <span class="line-through truncate">Migrasi Database & Sinkronisasi Skema</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400">
-                                    <span class="material-symbols-outlined text-emerald-500 text-[14px] sm:text-[16px] shrink-0">check_circle</span>
+                                    <span class="material-symbols-outlined text-[#6ca413] dark:text-[#BAFF39] text-[14px] sm:text-[16px] shrink-0">check_circle</span>
                                     <span class="line-through truncate">Uji Beban & Keamanan Endpoint API</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-zinc-800 dark:text-zinc-200">
@@ -112,6 +112,6 @@
 
                 <!-- Backing decorative visual ornaments (Hidden on extra small screens to prevent overflow) -->
                 <div class="hidden sm:block absolute -top-8 -right-8 w-36 h-36 border border-zinc-200 dark:border-zinc-800/60 rounded-full -z-10"></div>
-                <div class="hidden sm:block absolute -bottom-10 -left-10 w-44 h-44 border border-emerald-600/10 rounded-full -z-10"></div>
+                <div class="hidden sm:block absolute -bottom-10 -left-10 w-44 h-44 border border-[#BAFF39]/20 rounded-full -z-10"></div>
             </div>
         </section>

@@ -191,9 +191,9 @@
     color: #a1a1aa !important;
 }
 .vh-swal-confirm {
-    background-color: #C2410C !important;
-    color: #ffffff !important;
-    font-weight: 700 !important;
+    background-color: #BAFF39 !important;
+    color: #09090b !important;
+    font-weight: 800 !important;
     font-size: 0.8rem !important;
     padding: 0.55rem 1.25rem !important;
     border-radius: 0.625rem !important;
@@ -202,7 +202,7 @@
     cursor: pointer !important;
 }
 .vh-swal-confirm:hover {
-    background-color: #9A3412 !important;
+    background-color: #a6ec27 !important;
 }
 .vh-swal-cancel {
     background-color: #ffffff !important;
@@ -251,14 +251,14 @@
     cursor: pointer !important;
 }
 .swal2-icon.swal2-success {
-    border-color: #EA580C !important;
-    color: #C2410C !important;
+    border-color: #BAFF39 !important;
+    color: #5a8215 !important;
 }
 .swal2-icon.swal2-success .swal2-success-ring {
-    border-color: rgba(234, 88, 12, 0.3) !important;
+    border-color: rgba(186, 255, 57, 0.4) !important;
 }
 .swal2-icon.swal2-success [class^='swal2-success-line'] {
-    background-color: #C2410C !important;
+    background-color: #5a8215 !important;
 }
 .swal2-icon.swal2-warning {
     border-color: #d97706 !important;
@@ -271,8 +271,8 @@
     background-color: #e11d48 !important;
 }
 .swal2-icon.swal2-question {
-    border-color: #EA580C !important;
-    color: #EA580C !important;
+    border-color: #BAFF39 !important;
+    color: #5a8215 !important;
 }
 .swal2-icon.swal2-info {
     border-color: #0284c7 !important;

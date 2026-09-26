@@ -29,7 +29,7 @@
     >
     @if($showText)
         <span class="{{ $textSize }} font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Vexa<span class="text-brand-600 dark:text-brand-400">Host</span>
+            Vexa<span class="text-[#5c8a0f] dark:text-[#BAFF39]">Host</span>
         </span>
     @endif
 </div>
